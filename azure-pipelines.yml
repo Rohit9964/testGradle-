@@ -1,0 +1,27 @@
+
+trigger:
+- master
+
+pool:
+  name: default  # Uses a Microsoft-hosted Ubuntu agent with Java/Gradle pre-installed
+
+steps:
+- checkout: self
+  displayName: 'Checkout code from GitHub'
+
+- script: gradle build
+  displayName: 'Build the Gradle application'
+
+- script: gradle test
+  displayName: 'Run unit tests'
+
+- script: gradle run
+  displayName: 'Run Gradle application'
+
+- script: echo 'Build and deployment successful!'
+  displayName: 'Post-Success Message'
+  condition: succeeded()
+
+- script: echo 'Build failed!'
+  displayName: 'Post-Failure Message'
+  condition: failed()
