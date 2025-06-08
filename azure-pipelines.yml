@@ -3,7 +3,7 @@ trigger:
 - master
 
 pool:
-  name: Self Hosted  # Uses a Microsoft-hosted Ubuntu agent with Java/Gradle pre-installed
+  name: Default# Uses a Microsoft-hosted Ubuntu agent with Java/Gradle pre-installed
 
 steps:
 - checkout: self
